@@ -1,23 +1,32 @@
+<!-- Full-Page Embedding -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      (function () {
-        if (document.getElementById('embed-donation-script')) return;
-        const script = document.createElement('script');
-        script.id = 'embed-donation-script';
-        script.src =
-          'https://test-app.meaningful.ca/embed-donation.js?recordId=67a39913135c6428c3f4dd9d&env=test';
-        script.async = true;
-        script.onload = () =>
-          console.log('Donation script loaded and executed.');
-        document.body.appendChild(script);
-      })();
-    </script>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Portal</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #member-portal-frame {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe id="member-portal-frame" src="https://test-app.meaningful.ca/memberPortalEmbedding/index.html"
+        title="Member Portal" allow="payment; geolocation">
+    </iframe>
+</body>
+
 </html>
