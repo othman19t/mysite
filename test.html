@@ -6,11 +6,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Portal</title>
-    <script> var MemberSpace = window.MemberSpace || {"subdomain":"othmanothman"}; (function(d){ var s = d.createElement("script"); s.src = "https://cdn.memberspace.com/scripts/widgets.js"; var e = d.getElementsByTagName("script")[0]; e.parentNode.insertBefore(s,e); }(document)); </script>
+   
 </head>
 
 <body>
-   
+    <!-- Navbar with Member Portal Link -->
+<nav class="navbar">
+    <a href="/" class="nav-item">Home</a>
+    <a href="/about" class="nav-item">About</a>
+    <button id="mw-member-portal-trigger" class="nav-item">Member Portal</button>
+</nav>
+  <!-- Load the Member Portal SDK -->
+<script src="https://test-app.meaningful.ca/embedding-member-portal-sdk.js"></script>
+<script>
+    // Initialize the SDK
+    const sdk = new MemberPortalSDK({
+        containerId: 'member-portal-container',
+        clientId: 'embed-widget-test',
+        organizationId: '68d9cbd2871001f85e18004c',
+        baseUrl: 'https://test-app.meaningful.ca',
+        onAuthSuccess: (data) => {
+            console.log('✅ Authentication successful!');
+        },
+        onAuthError: (error) => {
+            console.error('❌ Authentication failed:', error);
+        }
+    });
+
+    // Initialize the portal container (required)
+    sdk.initializePortalContainer({
+        modalTitle: 'Member Portal',
+        loginButtonText: 'Login to Member Portal',
+        welcomeTitle: 'Welcome to the Member Portal',
+        welcomeMessage: 'Please log in to access the member portal. A popup window will appear.'
+    });
+</script> 
 </body>
 
 </html>
