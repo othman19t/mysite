@@ -10,21 +10,18 @@
 </head>
 
 <body>
-<!-- MeaningfulWork Events Embedding -->
+<!-- MeaningfulWork Single Event Embed -->
 <script src="https://test-app.meaningful.ca/embedding-events-sdk.js"></script>
 
-<!-- Login/Logout button - place anywhere on your page -->
-<button id="mw-auth-button">Login</button>
-
-<!-- Events container - displays events as a section -->
+<!-- Events container - displays the event -->
 <div id="mw-events-container" style="min-height: 500px;"></div>
 
 <script>
   const eventsSDK = new MWEventsSDK({
     organizationId: '69652dff9a01533fd2478f51',
+    eventId: '698a6f7c4d6a9c57dc8b14de',
     baseUrl: 'https://test-app.meaningful.ca',
-    containerId: 'mw-events-container',
-    authButtonId: 'mw-auth-button'
+    containerId: 'mw-events-container'
   });
   eventsSDK.init();
 </script>
