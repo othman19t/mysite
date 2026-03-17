@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <!-- Member Portal Container -->
+    <div id="member-portal-container" style="width: 100%; height: 97vh; border: 1px solid #e0e0e0; border-radius: 8px;">
+    </div>
+
+    <!-- Load the Member Portal SDK -->
+    <script src="https://test-app.meaningful.ca/embedding-member-portal-sdk.js"></script>
+    <script>
+        // Initialize the SDK
+        const sdk = new MemberPortalSDK({
+            containerId: 'member-portal-container',
+            organizationId: '69652dff9a01533fd2478f51',
+            baseUrl: 'https://test-app.meaningful.ca',
+            onAuthSuccess: (data) => {
+                console.log('Authentication successful!', data);
+            },
+            onAuthError: (error) => {
+                console.error('Authentication failed:', error);
+            }
+        });
+
+        // Initialize - renders directly to container
+        sdk.initializePortalContainer({
+            loginButtonText: 'Login to Member Portal',
+            welcomeTitle: 'Welcome to the Member Portal',
+            welcomeMessage: 'Please log in to access the Member Portal. A popup window will appear.'
+        });
+    </script>
+</body>
+
+</html>
